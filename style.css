@@ -1,0 +1,70 @@
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-image: url(https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?cs=srgb&dl=pexels-pixabay-209831.jpg&fm=jpg);
+}
+
+.input {
+    text-align: center;
+    margin:100px 0
+}
+
+input[type="text"] {
+    height: 50px;
+    width: 600px;
+    background: #e7e7e7;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+    padding: 10px 10px;
+}
+
+input[type="submit"] {
+    height: 50px;
+    width: 100px;
+    background: #e7e7e7;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+    border: none;
+    border-radius: 2px;
+}
+
+.display {
+    text-align: center;
+}
+
+.name {
+    font-size: 100px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+}
+
+.descEl {
+    font-size: 45px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
+}
+
+.temp {
+    font-size: 45px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.header {
+    text-align: center;
+    color: azure;
+    border-bottom: 5px solid black;
+    border-right: 5px solid black;
+    border-radius: 20px;
+    font-style: italic;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding: 5px 5px 5px 5px;
+    box-shadow: 5px 5px 5px black;
+    margin-top: 10px;
+}
