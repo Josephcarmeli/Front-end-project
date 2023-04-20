@@ -5,6 +5,20 @@ let descEl = document.querySelector(".descEl");
 let tempEl = document.querySelector(".temp");
 let selectedUnit = document.querySelector('input[name="units"]:checked').value;
 let currentLocationBtn = document.querySelector(".location-button")
+const audio = document.querySelector(".audio");
+const playButton = document.getElementById("play-audio");
+
+function toggleAudio() {
+  if (audio.paused) {
+    audio.play();
+    playButton.textContent = "Pause Audio";
+  } else {
+    audio.pause();
+    playButton.textContent = "Play Audio";
+  }
+}
+
+playButton.addEventListener("click", toggleAudio);
 
 document.querySelectorAll('input[name="units"]').forEach(function(radio) {
     radio.addEventListener("change", function() {
@@ -12,7 +26,7 @@ document.querySelectorAll('input[name="units"]').forEach(function(radio) {
       button.click();
     });
   });
-  
+
   button.addEventListener("click", () => {
     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue.value}&appid=3b198bf6856a18a221a056cee186c32a&units=${selectedUnit}`)
       .then(function (response) {

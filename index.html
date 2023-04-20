@@ -24,6 +24,26 @@
     ></script>
   </head>
   <body>
+    <div id="vanta-canvas"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.clouds.min.js"></script>
+    <script>
+      VANTA.CLOUDS({
+        el: "#vanta-canvas",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200.00,
+        minWidth: 200.00,
+        skyColor: 0x3e5d72,
+        cloudShadowColor: 0x36495f,
+        sunColor: 0xeda754,
+        sunGlareColor: 0xf7410f,
+        sunlightColor: 0xbb6413,
+        speed: 2.10
+      })
+      </script>
     <div class="header">
       <h1>Check The Weather In Your Area!</h1>
     </div>
@@ -51,5 +71,8 @@
       <p class="descEl"></p>
       <p class="temp"></p>
     </div>
+    <button id="play-audio">Play Audio</button>
+    <audio class="audio" loop src="Audio.mp3"></audio>
+
   </body>
 </html>
