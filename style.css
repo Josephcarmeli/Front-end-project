@@ -4,10 +4,16 @@
     box-sizing: border-box;
 }
 
-body {
+  body {
     font-family: 'Times New Roman', Times, serif;
-    background-image: url(https://images.pexels.com/photos/209831/pexels-photo-209831.jpeg?cs=srgb&dl=pexels-pixabay-209831.jpg&fm=jpg);
-}
+    background-image: url(https://c0.wallpaperflare.com/preview/572/961/266/sky-dark-light-clouds.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+  }
 
 .input {
     text-align: center;
