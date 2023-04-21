@@ -5,8 +5,8 @@ let descEl = document.querySelector(".descEl");
 let tempEl = document.querySelector(".temp");
 let selectedUnit = document.querySelector('input[name="units"]:checked').value;
 let currentLocationBtn = document.querySelector(".location-button")
-const audio = document.querySelector(".audio");
-const playButton = document.getElementById("play-audio");
+let audio = document.querySelector(".audio");
+let playButton = document.getElementById("play-audio");
 
 function toggleAudio() {
   if (audio.paused) {
@@ -15,6 +15,17 @@ function toggleAudio() {
   } else {
     audio.pause();
     playButton.textContent = "Play Audio";
+  }
+}
+
+function getData(response) {
+  console.log(response);
+  nameEl.textContent = response.data.name;
+  descEl.textContent = response.data.weather[0].description;
+  if (selectedUnit === "metric") {
+      tempEl.textContent = response.data.main.temp + "°C";
+  } else {
+      tempEl.textContent = response.data.main.temp + "°F";
   }
 }
 
@@ -29,16 +40,7 @@ document.querySelectorAll('input[name="units"]').forEach(function(radio) {
 
   button.addEventListener("click", () => {
     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${inputValue.value}&appid=3b198bf6856a18a221a056cee186c32a&units=${selectedUnit}`)
-      .then(function (response) {
-        console.log(response);
-        nameEl.textContent = response.data.name;
-        descEl.textContent = response.data.weather[0].description;
-        if (selectedUnit === "metric") {
-          tempEl.textContent = response.data.main.temp + "°C";
-        } else {
-          tempEl.textContent = response.data.main.temp + "°F";
-        }
-      })
+    .then(getData)
       .catch(function (error) {
         console.log(error);
       });
@@ -50,16 +52,7 @@ document.querySelectorAll('input[name="units"]').forEach(function(radio) {
             let lat = position.coords.latitude;
             let lon = position.coords.longitude;
             axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=3b198bf6856a18a221a056cee186c32a&units=${selectedUnit}`)
-                .then(function (response) {
-                    console.log(response);
-                    nameEl.textContent = response.data.name;
-                    descEl.textContent = response.data.weather[0].description;
-                    if (selectedUnit === "metric") {
-                        tempEl.textContent = response.data.main.temp + "°C";
-                    } else {
-                        tempEl.textContent = response.data.main.temp + "°F";
-                    }
-                })
+                .then(getData)
                 .catch(function (error) {
                     console.log(error);
                 });
